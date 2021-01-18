@@ -7,7 +7,7 @@
 #include <string.h>
 #include <unistd.h>
 #include <debug.h>
-
+#include <network.h>
 static void *xfb = NULL;
 static GXRModeObj *vmode = NULL;
 char * url = "";
@@ -65,6 +65,15 @@ int main(int argc, char **argv) {
 	fatInitDefault();
 	s32 ret;
 	printf('Some network init thing idk');
+	res = net_init_async(NULL, NULL);
+	if (res < 0) {
+		printf('Failed to init net!');
+	}
+	else {
+		printf('Net Init Done!');
+		DEBUG_Init(100, 5656);
+		printf('Debug Init Done!');
+	}
 	if (argc > 0) {
 		char path[MAXPATHLEN];
 		int len = strlen(argv[0]);
