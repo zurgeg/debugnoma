@@ -6,6 +6,7 @@
 #include <stdlib.h>
 #include <string.h>
 #include <unistd.h>
+#include <debug.h>
 
 static void *xfb = NULL;
 static GXRModeObj *vmode = NULL;
@@ -63,6 +64,7 @@ int main(int argc, char **argv) {
 	setupVideo();
 	fatInitDefault();
 	s32 ret;
+	printf('Some network init thing idk');
 	if (argc > 0) {
 		char path[MAXPATHLEN];
 		int len = strlen(argv[0]);
