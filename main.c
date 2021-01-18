@@ -68,20 +68,9 @@ int main(int argc, char **argv) {
 		int len = strlen(argv[0]);
 		int i = 0;
         for(i = len; argv[0][i] != '/'; i--);
-        if(i < 1)
-			readCfg("sd:/url.cfg");
-        else {
-			argv[0][i] = 0;
-			sprintf(path, "%s/url.cfg", argv[0]);
-			readCfg(path);
-		}
-	}
-	ret = launchTitle(0x0001000148414445LL, url);
+	ret = launchTitle(0x000100014843494ALL, 'moment');
 	if (ret < 0) {
-		ret = launchTitle(0x000100014841444ALL, url);
-	}
-	if (ret < 0) {
-		ret = launchTitle(0x0001000148414450LL, url);
+		printf('Wii no Ma must be installed to debug...');
 	}
 	return ret;
 }
